@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- meta -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Rui Yi's Portfolio</title>
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Playfair+Display:400,400i,700,700i,900,900i"
+        rel="stylesheet">
+
+    <!-- Bootstrap CSS File -->
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Libraries CSS Files -->
+    <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="lib/hover/hover.min.css" rel="stylesheet">
+
+    <!-- Main Stylesheet File -->
+    <link href="css/project.css" rel="stylesheet">
+
+    <!-- Responsive css -->
+    <link href="css/responsive.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.png">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        canvas {
+            background: #eee;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- start section navbar -->
+    <nav id="main-nav">
+        <div class="row">
+            <div class="container">
+
+                <div class="logo">
+                    <a href="index.html"><img src="images/logo.png" alt="logo"></a>
+                </div>
+
+                <div class="responsive"><i data-icon="m" class="ion-navicon-round"></i></div>
+
+                <ul class="nav-menu list-unstyled">
+                    <li><a href="index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="#about" class="smoothScroll">About</a></li>
+                    <li><a href="#portfolio" class="smoothScroll">Portfolio</a></li>
+                    <li><a href="#journal" class="smoothScroll">Project</a></li>
+                    <li><a href="#contact" class="smoothScroll">Contact</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <!-- End section navbar -->
+    <!-- start section portfolio -->
+    <div id="portfolio" class="text-center paddsection">
+
+        <div class="container">
+            <div class="section-title text-center" style="margin-top: 65px;">
+                <h2>Brick game</h2>
+            </div>
+        </div>
+        <!-- start ballgame ui -->
+        <canvas id="myCanvas" width="480" height="320"></canvas>
+        <div>
+            <button type="button" class="btn mt-5" id="start" onclick="start()">Start</button>
+            <button type="button" class="btn mt-5" onclick="pause()">Pause</button>
+        </div>
+        <!-- End ballgame ui -->
+    </div>
+    <!-- End section portfolio -->
+
+    <script>
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d"); //此時的ctx為儲存2d渲染環境
+        // ctx.beginPath();
+        // ctx.rect(20, 40, 50, 50);
+        // ctx.fillStyle = "#FF0000";
+        // ctx.fill();
+        // ctx.closePath();
+
+        // ctx.beginPath();
+        // ctx.arc(240, 160, 20, 0, Math.PI * 2, false);參數分別為 起始位置的xy座標,半徑,圓弧,pi,false為逆時針
+        // ctx.fillStyle = "green";
+        // ctx.fill();
+        // ctx.closePath();
+
+        // ctx.beginPath();
+        // ctx.rect(160, 10, 200, 100);
+        // ctx.strokeStyle = "rgba(0,0,255,0.5)";
+        // ctx.stroke();
+        // ctx.closePath();
+        var x = canvas.width / 2; //480/2
+        var y = canvas.height - 30; //320-30
+        var dx = 2;
+        var dy = -2;
+        var ballRadius = 10; //球的半徑
+        var paddleHeight = 10;
+        var paddleWidth = 75;
+        var paddleX = (canvas.width - paddleWidth) / 2; //此為板子左上角那個點
+        var rightPressed = false;
+        var leftPressed = false;
+        var brickRowCount = 3; //3列
+        var brickColumnCount = 5; //5行
+        var brickWidth = 75;
+        var brickHeight = 20;
+        var brickPadding = 10;
+        var brickOffsetTop = 30; //上左偏移量，讓他們不會從畫布邊緣開始繪製
+        var brickOffsetLeft = 30; //上左偏移量，讓他們不會從畫布邊緣開始繪製
+        var score = 0;
+        document.addEventListener("keydown", keyDownHandler, false);
+        document.addEventListener("keyup", keyUpHandler, false);
+        document.addEventListener("mousemove", mouseMoveHandler, false);
+
+        var bricks = [];
+        for (c = 0; c < brickColumnCount; c++) { //5
+            bricks[c] = [];
+            for (r = 0; r < brickRowCount; r++) { //3
+                bricks[c][r] = { x: 0, y: 0, status: 1 };
+            }
+        }
+        function mouseMoveHandler(e) {
+            var relativeX = e.clientX - canvas.offsetLeft;
+            if (relativeX > 0 && relativeX < canvas.width) {
+                paddleX = relativeX - paddleWidth / 2;
+            }
+        }
+        function keyDownHandler(e) {
+            if (e.keyCode == 39) {
+                rightPressed = true;
+            } else if (e.keyCode == 37) {
+                leftPressed = true;
+            }
+        }
+        function keyUpHandler(e) {
+            if (e.keyCode == 39) {
+                rightPressed = false;
+            } else if (e.keyCode == 37) {
+                leftPressed = false;
+            }
+        }
+        function collisionDetection() { //碰撞偵測
+            for (c = 0; c < brickColumnCount; c++) {
+                for (r = 0; r < brickRowCount; r++) {
+                    var b = bricks[c][r]; //計算(每一個陣列裡的值)
+                    if (b.status == 1) { //如果磚塊存在，檢測碰撞是否發生
+                        if (x > b.x && x < b.x + brickWidth && y > b.y && y < b.y + brickHeight) {
+                            // 球的x位置大於磚的x位置
+                            // 球的x位置小於磚的x位置加上磚的width
+                            // 球的y位置大於磚的y
+                            // 球的y位置小於磚的y加上磚的height
+                            dy = -dy; //改變方向
+                            b.status = 0; //狀態為零
+                            score++;
+                            if (score == brickRowCount * brickColumnCount) {
+                                alert("Hey You Win,Congratulations!");
+                                document.location.reload();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        function drawScore() {
+            ctx.font = "16px Arial";
+            ctx.fillStyle = "#0095DD";
+            ctx.fillText("Score: " + score, 8, 20);
+        }
+        function drawBall() {
+            ctx.beginPath();
+            ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
+            ctx.fillStyle = "#0095DD";
+            ctx.fill();
+            ctx.closePath();
+        }
+        function drawPaddle() {
+            ctx.beginPath();
+            ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
+            ctx.fillStyle = "#0095DD";
+            ctx.fill();
+            ctx.closePath();
+        }
+        function drawBricks() {
+            for (c = 0; c < brickColumnCount; c++) {
+                for (r = 0; r < brickRowCount; r++) {
+                    if (bricks[c][r].status == 1) {
+                        var brickX = (c * (brickWidth + brickPadding)) + brickOffsetLeft;
+                        var brickY = (r * (brickHeight + brickPadding)) + brickOffsetTop;
+                        bricks[c][r].x = brickX;
+                        bricks[c][r].y = brickY;
+                        ctx.beginPath();
+                        ctx.rect(brickX, brickY, brickWidth, brickHeight);
+                        ctx.fillStyle = "#0095DD";
+                        ctx.fill();
+                        ctx.closePath();
+                    }
+                }
+            }
+        }
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawBall();
+            drawPaddle();
+            drawBricks();
+            collisionDetection();
+            drawScore();
+            if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
+                dx = -dx;
+            }
+            if (y + dy < ballRadius) {
+                dy = -dy; //改變方向
+            } else if (y + dy > canvas.height - ballRadius) {
+                if (x > paddleX && x < paddleX + paddleWidth) {
+                    dy = -dy;
+                } else {
+                    alert("Game Over");
+                    document.location.reload(); //重洗頁面
+                }
+            }
+            if (rightPressed && paddleX < canvas.width - paddleWidth) {
+                paddleX += 7; //如確實有按下右鑑且x位置小於畫布的最右邊剪掉板子寬
+            } else if (leftPressed && paddleX > 0) {
+                paddleX -= 7; //如確實按下左鑑且板子x位置大於零
+            }
+            x += dx;
+            y += dy;
+        }
+
+        // setInterval(draw, 10);
+
+        let timerTask = null;
+        let isRunning = false;
+        function pause() {
+            if (timerTask != null) {
+                clearInterval(timerTask);
+            }
+            isRunning = false;
+            document.getElementById("start").disabled = false;
+        }
+        function start() {
+            if (isRunning) return; //如果他在跑，就傳回
+            isRunning = true;
+            timerTask = setInterval(draw, 10);
+            document.getElementById("start").disabled = true;
+            // timerTask = setInterval(function () { //setinterval 只能帶不帶參數的function
+            //     document.getElementById("brad").innerHTML = ++j;
+            // }, 200);
+
+        }
+    </script>
+
+    <!-- JavaScript Libraries -->
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/jquery/jquery-migrate.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/typed/typed.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/magnific-popup/magnific-popup.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+
+    <!-- Contact Form JavaScript File -->
+    <script src="contactform/contactform.js"></script>
+
+    <!-- Template Main Javascript File -->
+    <script src="js/main copy.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- meta -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Rui Yi's Portfolio</title>
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Playfair+Display:400,400i,700,700i,900,900i"
+        rel="stylesheet">
+
+    <!-- Bootstrap CSS File -->
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Libraries CSS Files -->
+    <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="lib/hover/hover.min.css" rel="stylesheet">
+
+    <!-- Main Stylesheet File -->
+    <link href="css/project.css" rel="stylesheet">
+
+    <!-- Responsive css -->
+    <link href="css/responsive.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.png">
+</head>
+
+<body>
+    <!-- start section navbar -->
+    <nav id="main-nav">
+        <div class="row">
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html"><img src="images/logo.png" alt="logo"></a>
+                </div>
+                <div class="responsive"><i data-icon="m" class="ion-navicon-round"></i></div>
+                <ul class="nav-menu list-unstyled">
+                    <li><a href="index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="#about" class="smoothScroll">About</a></li>
+                    <li><a href="#portfolio" class="smoothScroll">Portfolio</a></li>
+                    <li><a href="#journal" class="smoothScroll">Project</a></li>
+                    <li><a href="#contact" class="smoothScroll">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End section navbar -->
+    <!-- start section portfolio -->
+    <div id="portfolio" class="text-center paddsection">
+        <div class="container">
+            <div class="section-title text-center" style="margin-top: 65px;">
+                <h2>Form design</h2>
+            </div>
+        </div>
+    </div>
+    <!-- End section portfolio -->
+    <form class="container">
+        <div class="form-row align-items-center">
+            <div class="col-5 my-1">
+                <label class="sr-only" for="inlineFormInputName">Name</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="inlineFormInputName" placeholder="userName">
+                </div>
+            </div>
+            <div class="col-5 my-1">
+                <label class="sr-only" for="twid">Username</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="twid" placeholder="ID" onblur="checkID()">
+                </div>
+            </div>
+            <div class="col-2 my-1">
+                <div class="form-check">
+                    <span class="form-check-label" for="autoSizingCheck2" id="mesg1"></span>
+                    <!-- <input class="form-check-input" type="checkbox" id="autoSizingCheck2"> -->
+                </div>
+            </div>
+            <!-- <div class="col my-1">
+                <button type="submit" class="btn btn-primary" style="margin-left:250px ;">Submit</button>
+            </div> -->
+        </div>
+        <br>
+        <br>
+        <div class="input-group mb-3 row">
+            <div class="input-group-prepend col-auto">
+                <label class="input-group-text" for="inputGroupSelect01">Options</label>
+            </div>
+            <select class="form-control col-4" id="inputGroupSelect01" onchange="selectOP()">
+                <option selected>Choose...</option>
+                <option value="1">Area + Gender</option>
+                <option value="2">Gender</option>
+                <option value="3">Area</option>
+            </select>
+            <div class="col-2 my-1">
+                <div class="form-check">
+                    <span class="form-check-label" id="mesg2"></span>
+                </div>
+            </div>
+        </div>
+        <br>
+        <canvas id="canvas" width="450" height="200" style="border: 1px solid #999;"></canvas>
+        <div class="my-1">
+            <button type="button" class="btn btn-primary" id="clear">Clear</button>
+        </div>
+    </form>
+
+    <!-- JavaScript Libraries -->
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/jquery/jquery-migrate.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/typed/typed.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/magnific-popup/magnific-popup.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+
+    <!-- Contact Form JavaScript File -->
+    <script src="contactform/contactform.js"></script>
+
+    <!-- Template Main Javascript File -->
+    <script src="js/main copy.js"></script>
+    <script src="js/bradutils.js"></script>
+    <script>
+        function checkID() {
+            // console.log("onblur");
+            let twid = document.getElementById("twid").value;
+            let result = checkTWID(twid);
+            if (result) {
+                document.getElementById('mesg1').innerHTML = "OK";
+            } else {
+                document.getElementById('mesg1').innerHTML = "ERR";
+            }
+        }
+
+        function selectOP() {
+            let op = document.getElementById("inputGroupSelect01");
+            let ID = op.options[op.selectedIndex].value;
+            switch (ID) {
+                case "1":
+                    let newid1 = creatTWidByBoth('A', false);
+                    document.getElementById('mesg2').innerHTML = newid1;
+                    break;
+                case "2":
+                    let newid2 = creatTWidByGender(true);
+                    document.getElementById('mesg2').innerHTML = newid2;
+                    break;
+                case "3":
+                    let newid3 = creatTWidByArea('B');
+                    document.getElementById('mesg2').innerHTML = newid3;
+                    break;
+            }
+        }
+
+        let ctx = canvas.getContext("2d");
+        clear.onclick = function () {
+            ctx.clearRect(0, 0, 450, 200);
+        }
+        ctx.strokeStyle = "rgb(41,36,33)";
+        let isDrag = false;
+        canvas.onmousedown = function (e) {
+            isDrag = true;
+            // console.log("down :" + e.offsetX + "X" + e.offsetY);
+            ctx.beginPath(); //先移到第一個點
+            ctx.moveTo(e.offsetX, e.offsetY); //開始畫線
+        }
+        canvas.onmouseup = function (e) {
+            isDrag = false;
+        }
+        canvas.onmousemove = function (e) {
+            if (!isDrag) return;
+            // console.log("move :" + e.offsetX + "x" + e.offsetY);
+            ctx.lineTo(e.offsetX, e.offsetY);
+            ctx.stroke();
+        }
+    </script>
+</body>
+
+</html>
