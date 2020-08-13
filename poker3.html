@@ -106,8 +106,9 @@
                     player.sort(function (a, b) { return a - b; })
                     document.write("<tr>");
                     for (let card of player) {
-                        let suit = Math.floor(card / 13);
-                        let num = card % 13;
+                        console.log(card);
+                        let suit = Math.floor(card / 13); //4個group定義花色
+                        let num = card % 13; //一個group裡面有13個 然後除以13取餘數即可定義index
                         if (suit == 1 || suit == 2) {
                             document.write("<td style = 'color:red'>");
                         } else {
