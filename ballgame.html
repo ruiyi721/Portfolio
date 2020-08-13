@@ -173,7 +173,6 @@
                             if (score == brickRowCount * brickColumnCount) {
                                 alert("Hey You Win,Congratulations!");
                                 document.location.reload();
-                                break;
                             }
                         }
                     }
@@ -234,6 +233,7 @@
                 } else {
                     alert("Game Over");
                     document.location.reload(); //重洗頁面
+                    clearInterval(interval); // Needed for Chrome to end game
                 }
             }
             if (rightPressed && paddleX < canvas.width - paddleWidth) {
