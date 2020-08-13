@@ -9,11 +9,11 @@ function checkTWID(id){
     let ret = false;
     let letters = 'ABCDEFGHJKLMNPQRSTUVXYWZIO'
     if(id.match(/^[A-Z][12][0-9]{8}$/)){ //[0-9]{8}前面的正規表示出現8次
-       let c1 = id.charAt(0);
+       let c1 = id.charAt(0); //取身分證的第一個英文字
        let n12 = letters.indexOf(c1) + 10; //E -> 4 -> 14
        let n1 = Math.floor(n12 / 10); //1
        let n2 = n12 % 10; //4
-       let n3 = parseInt(id.substr(1,1)); 
+       let n3 = parseInt(id.substr(1,1)); //取出index length
        let n4 = parseInt(id.substr(2,1)); 
        let n5 = parseInt(id.substr(3,1)); 
        let n6 = parseInt(id.substr(4,1)); 
