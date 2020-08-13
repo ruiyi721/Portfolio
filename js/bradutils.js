@@ -32,12 +32,16 @@ function checkTWID(id){
 // console.log("after")
 
 function creatTWid(){
-    let gender = Math.floor(Math.random()*2) == 0;
-    return creatTWidByGender(gender);
+    // let gender = Math.floor(Math.random()*2) == 0;
+    // return creatTWidByGender(gender);
+    let letters = 'ABCDEFGHJKLMNPQRSTUVXYWZIO'
+    let rand = Math.floor(Math.random()*26); //0 - 25
+    let area = letters.substr(rand,1);
+    return creatTWidByArea(area);
 }
 function creatTWidByArea(area){
     // let gender = Math.floor(Math.random()*2+1);
-    let gender = Math.floor(Math.random()*2) == 0;
+    let gender = Math.floor(Math.random()*2) == 0; //是0就是true 1的話false
     return creatTWidByBoth(area ,gender);
 }
 function creatTWidByGender(gender){
@@ -52,9 +56,9 @@ function creatTWidByBoth(area = 'A',gender = false){
     let id  = area;
     id += gender?"1":"2";
     for(let i=0;i<7;i++){ //因為要產生其他7碼亂數
-        id += Math.floor(Math.random()*10); 
+        id += Math.floor(Math.random()*10);
     }
-    for(let j = 0;j<10;j++){
+    for(let j = 0;j<10;j++){ //最後一碼要符合總數除以10為整除 於是跑0-9的數字
         if(checkTWID(id + j)){
             //ok
             id += j;
