@@ -233,7 +233,7 @@
                 } else {
                     alert("Game Over");
                     document.location.reload(); //重洗頁面
-                    clearInterval(interval); // Needed for Chrome to end game
+                    clearInterval(timerTask); // Needed for Chrome to end game
                 }
             }
             if (rightPressed && paddleX < canvas.width - paddleWidth) {
@@ -247,7 +247,7 @@
 
         // setInterval(draw, 10);
 
-        let timerTask = null;
+        let timerTask = setInterval(draw, 10);
         let isRunning = false;
         function pause() {
             if (timerTask != null) {
