@@ -246,11 +246,12 @@ nav ul li a {
 /*-----------------------------------------------------------------------------------*/
 
 #header {
-  background: url("../images/home-bg4.jpg") repeat scroll center center / cover;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
+  background: repeat scroll center center / cover;
+  background-image: linear-gradient(to right bottom, rgba(176, 192, 215, 0.8), rgba(85, 120, 170, 0.8)),
     url("../images/home-bg4.jpg");
-  height: 100vh;
+  height: 95vh;
   width: 100%;
+  clip-path: polygon(0px 0px, 100% 0px, 100% 85%, 0px 100%);
 }
 
 #header .header-content {
@@ -260,6 +261,7 @@ nav ul li a {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  letter-spacing: 3px;
 }
 
 .header-content h1 {
@@ -297,13 +299,12 @@ nav ul li a {
 #about {
   width: 100%;
   height: auto;
-  background: #f7f7f7;
   padding-top: 190px;
 }
 
 #about .div-img-bg {
   padding-bottom: 30px;
-  border: 20px solid #b8a07e;
+  border: 1.5rem solid rgb(130, 156, 193);
 }
 
 #about .div-img-bg .about-img img {
@@ -313,6 +314,15 @@ nav ul li a {
   margin-left: 40px;
   height: 400px;
   object-fit: cover;
+}
+
+#about .about-descr .about-title {
+  font-size: 35px;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(to right, rgb(176, 192, 215), rgb(85, 120, 170));
+  font-weight: 600;
 }
 
 #about .about-descr .p-heading {
