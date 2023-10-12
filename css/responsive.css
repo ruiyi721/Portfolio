@@ -10,8 +10,12 @@
  *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 
-@media (min-width: 992px) and (max-width: 1199px) {
-  
+@media (max-width: 992px) {
+  .test::after {
+    height: 100%;
+    transform: none;
+    z-index: auto;
+  }
 }
 
 /** Width between 768px to 991px

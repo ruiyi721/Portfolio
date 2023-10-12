@@ -158,7 +158,7 @@ p {
 
 .paddsection {
   padding-top: 90px;
-  padding-bottom: 90px;
+  padding-bottom: 120px;
 }
 
 .paddsections {
@@ -299,30 +299,50 @@ nav ul li a {
 #about {
   width: 100%;
   height: auto;
-  padding-top: 190px;
+  padding-top: 70px;
 }
 
-#about .div-img-bg {
-  padding-bottom: 30px;
-  border: 1.5rem solid rgb(130, 156, 193);
+.about-img-area {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
 }
 
-#about .div-img-bg .about-img img {
+.about-img {
   width: 100%;
+  height: 100%;
   box-shadow: 0px 0px 85px 0px rgba(0, 0, 0, 0.14);
-  margin-top: -60px;
-  margin-left: 40px;
-  height: 400px;
   object-fit: cover;
 }
 
-#about .about-descr .about-title {
+.test {
+  height: 18rem;
+  width: 18rem;
+}
+
+.test::after {
+  content: "";
+  border: 1rem solid rgb(130, 156, 193);
+  box-sizing: border-box;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 18rem;
+  height: 18rem;
+  transform: translate(18%, 20%);
+  transition: all 0.3s ease 0s;
+  z-index: -1;
+}
+
+#about .about-title {
   font-size: 35px;
+  text-transform: uppercase;
   color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
   background-image: linear-gradient(to right, rgb(176, 192, 215), rgb(85, 120, 170));
-  font-weight: 600;
+  font-weight: 700;
+  width: fit-content;
 }
 
 #about .about-descr .p-heading {
@@ -332,9 +352,11 @@ nav ul li a {
 }
 
 #about .about-descr .separator {
+  font-family: Lato, sans-serif;
   max-width: 80%;
   margin-bottom: 0;
   text-align: left;
+  font-weight: 500;
 }
 
 /*-----------------------------------------------------------------------------------*/
@@ -344,7 +366,7 @@ nav ul li a {
 #services {
   background: #f7f7f7;
   position: relative;
-  padding-bottom: 80px;
+  padding: 45px 0;
 }
 
 .owl-item {
@@ -378,7 +400,7 @@ nav ul li a {
 }
 
 .services-carousel .owl-dots {
-  margin-top: 5px;
+  margin-top: 35px;
   text-align: center;
 }
 
@@ -535,59 +557,7 @@ nav ul li a {
 /*  Contact
 /*-----------------------------------------------------------------------------------*/
 
-#contact {
-  height: auto;
-  width: 100%;
-}
 
-.contact-details {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.contact-details li {
-  padding-bottom: 10px;
-}
-
-#contact input,
-#contact textarea {
-  width: 100%;
-}
-
-#contact #sendmessage {
-  color: #18d26e;
-  border: 1px solid #18d26e;
-  display: none;
-  text-align: center;
-  padding: 15px;
-  font-weight: 600;
-  margin: 15px;
-}
-
-#contact #errormessage {
-  color: red;
-  display: none;
-  border: 1px solid red;
-  text-align: center;
-  padding: 15px;
-  font-weight: 600;
-  margin: 15px;
-}
-
-#contact #sendmessage.show,
-#contact #errormessage.show,
-#contact .show {
-  display: block;
-}
-
-#contact .validation {
-  color: red;
-  display: none;
-  margin: 0 0 20px;
-  font-weight: 400;
-  font-size: 13px;
-}
 
 /*-----------------------------------------------------------------------------------*/
 /*  Footer
