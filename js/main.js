@@ -79,7 +79,7 @@ $(document).ready(function() {
 
   $(function() {
     typed.typed({
-      strings: ["Dora Chen.", "Engineer.", "Designer."],
+      strings: ["RuiYi Chen.", "Engineer.", "Designer."],
       typeSpeed: 100,
       loop: true,
     });
@@ -93,12 +93,12 @@ $(document).ready(function() {
 
   $('.services-carousel').owlCarousel({
       autoplay: true,
-      loop: true,
+      // loop: true,
       margin: 20,
       dots: true,
       nav: false,
       responsiveClass: true,
-      responsive: { 0: { items: 1 }, 768: { items: 2 }, 900: { items: 4 } }
+      responsive: { 0: { items: 1 }, 768: { items: 2 }, 900: { items: 3 } }
     });
 
   // ========================================================================= //
@@ -155,3 +155,14 @@ $(window).load(function(){
   });
 
 })
+
+// ========================================================================= //
+//  Porfolio isotope and filter
+// ========================================================================= //
+
+$(".open-desc-btn").on('click', function() {
+  var jobDesc = $(this).siblings(".job-desc");
+  jobDesc.toggleClass("show");
+  var icon = $(this).find("i");
+  icon.toggleClass("ion-ios-arrow-up");
+});

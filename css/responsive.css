@@ -11,7 +11,7 @@
  */
 
 @media (max-width: 992px) {
-  .test::after {
+  .about-img-square::after {
     height: 100%;
     transform: none;
     z-index: auto;
@@ -45,7 +45,7 @@
   }
   .responsive {
     float: right;
-    padding-top: 15px;
+    /* padding-top: 15px; */
     display: block;
   }
   /* About */
@@ -60,7 +60,7 @@
     margin-left: calc(0% - 0px);
   }
   #about .about-descr .p-heading {
-    font-size: 20px;
+    font-size: 18px;
   }
   #about .about-descr .separator {
     max-width: 100%;
@@ -116,7 +116,7 @@
   }
   .responsive {
     float: right;
-    padding-top: 15px;
+    /* padding-top: 15px; */
     display: block;
   }
   /* About */
@@ -131,7 +131,7 @@
     margin-left: calc(0% - 0px);
   }
   #about .about-descr .p-heading {
-    font-size: 20px;
+    font-size: 18px;
   }
   #about .about-descr .separator {
     max-width: 100%;
@@ -187,7 +187,7 @@
   }
   .responsive {
     float: right;
-    padding-top: 15px;
+    /* padding-top: 15px; */
     display: block;
   }
   /* About */
@@ -202,11 +202,31 @@
     margin-left: calc(0% - 0px);
   }
   #about .about-descr .p-heading {
-    font-size: 20px;
+    font-size: 18px;
   }
   #about .about-descr .separator {
     max-width: 100%;
     margin-bottom: 0;
+  }
+  /* experience */
+  .experience-info {
+    padding: 0 2rem 0 4rem;
+  }
+  .job-desc::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background: linear-gradient(rgba(255, 255, 255, 0), rgb(247, 247, 247));
+    transition: all 0.3s ease 0s;
+  }
+  .job-desc.show::before {
+    display: none;
+  }
+  .open-desc-btn {
+    display: inherit;
   }
   /* portfolio */
   #portfolio .portfolio-list .nav li {
@@ -258,7 +278,7 @@
   }
   .responsive {
     float: right;
-    padding-top: 15px;
+    /* padding-top: 15px; */
     display: block;
   }
   /* About */
@@ -273,7 +293,7 @@
     margin-left: calc(0% - 0px);
   }
   #about .about-descr .p-heading {
-    font-size: 20px;
+    font-size: 18px;
   }
   #about .about-descr .separator {
     max-width: 100%;
@@ -328,7 +348,7 @@
   }
   .responsive {
     float: right;
-    padding-top: 15px;
+    /* padding-top: 15px; */
     display: block;
   }
   /* About */
@@ -343,7 +363,7 @@
     margin-left: calc(0% - 0px);
   }
   #about .about-descr .p-heading {
-    font-size: 20px;
+    font-size: 18px;
   }
   #about .about-descr .separator {
     max-width: 100%;

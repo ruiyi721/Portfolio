@@ -30,9 +30,6 @@
   <!-- Responsive css -->
   <link href="css/responsive.css" rel="stylesheet">
 
-  <!-- Favicon -->
-  <link rel="shortcut icon" href="images/favicon.png">
-
   <!-- =======================================================
     Theme Name: Folio
     Theme URL: https://bootstrapmade.com/folio-bootstrap-portfolio-template/
@@ -48,18 +45,14 @@
     <div class="row">
       <div class="container">
 
-        <div class="logo">
-          <a href="index.html"><img src="images/logo.png" alt="logo"></a>
-        </div>
-
         <div class="responsive"><i data-icon="m" class="ion-navicon-round"></i></div>
 
         <ul class="nav-menu list-unstyled">
           <li><a href="#header" class="smoothScroll">Home</a></li>
           <li><a href="#about" class="smoothScroll">About</a></li>
+          <li><a href="#experience" class="smoothScroll">Experience</a></li>
           <li><a href="#portfolio" class="smoothScroll">Portfolio</a></li>
-          <li><a href="#journal" class="smoothScroll">Project</a></li>
-          <li><a href="#contact" class="smoothScroll">Contact</a></li>
+          <li><a href="#footer" class="smoothScroll">Contact</a></li>
         </ul>
 
       </div>
@@ -76,14 +69,12 @@
         <p>Engineer, designer.</p>
 
         <ul class="list-unstyled list-social">
-          <li><a href="https://www.facebook.com/wei.chen1991?ref=bookmarks" target="_blank"><i
-                class="ion-social-facebook"></i></a></li>
-          <!-- <li><a href="#"><i class="ion-social-twitter"></i></a></li> -->
-          <li><a href="https://www.instagram.com/dorachen.21/" target="_blank"><i class="ion-social-instagram"></i></a>
+          <li>
+            <a href="https://github.com/ruiyi721" target="_blank"><i class="ion-social-github"></i></a>
           </li>
-          <!-- <li><a href="#"><i class="ion-social-googleplus"></i></a></li> -->
-          <!-- <li><a href="#"><i class="ion-social-tumblr"></i></a></li> -->
-          <!-- <li><a href="#"><i class="ion-social-dribbble"></i></a></li> -->
+          <li>
+            <a href="mailto:ohya721@gmail.com" target="_blank"><i class="ion-ios-email"></i></a>
+          </li>
         </ul>
       </div>
     </div>
@@ -92,30 +83,29 @@
 
 
   <!-- start section about us -->
-  <div id="about" class="paddsection">
+  <div id="about">
     <div class="container">
       <div class="row justify-content-between">
 
         <div class="col-lg-5 about-img-area">
-          <div class="test position-relative">
-            <img src="images/me2.jpg" class="img-responsive w-100 about-img" alt="me">
+          <div class="about-img-square position-relative">
+            <img src="images/me.jpg" class="img-responsive w-100 about-img" alt="me">
           </div>
         </div>
 
         <div class="col-lg-6">
           <div class="about-descr">
-            <p class="about-title">About Me</p>
-            <p class="p-heading">123</p>
+            <p class="title-style">About Me</p>
+            <p class="p-heading">2 years + Frontend Developer</p>
             <p class="separator">參與過從零到有的專案開發，與資深工程師協作，技術上使用前端主流生態 Vue 搭配 TypeScript 進行非同步請求處理，
               近期專案加入最新 Vue3 框架，學習有別於 Vue2 的 Composition API管理，優化舊版 Vue2 有了更快效能更好的 TypeScript 支援。
             </p>
             <p class="separator">目前前端職涯中，參與過後台管理系統、遊戲平台、前台會員中心以及獨自完成 UI/UX 設計，
               聽取使用者回饋並改善，閒暇之餘喜歡透過技術書籍、線上課程精進自己，期許能在未來開發對大眾更具影響力作品，並成為獨當一面的前端工程師。
             </p>
-
           </div>
-
         </div>
+
       </div>
     </div>
   </div>
@@ -125,63 +115,133 @@
   <!-- start section services -->
   <div id="services">
     <div class="container">
-
       <div class="services-carousel owl-theme">
 
-        <div class="services-block">
+        <div class="services-block text-center">
 
-          <i class="ion-ios-browsers-outline"></i>
+          <i class="ion-ios-browsers"></i>
+          <span>WEB DEVELOPMENT</span>
+          <p class="separator">Html5｜Vue3｜JavaScript｜TypeScript</p>
+          <p class="separator">RWD｜SCSS｜Element UI｜Bootstrap</p>
+          <p class="separator">Webpack｜Npm｜Git</p>
+
+        </div>
+
+        <div class="services-block text-center">
+
+          <i class="ion-ios-compose-outline"></i>
           <span>UI/UX DESIGN</span>
-          <p class="separator">To an English person, it will seem like simplified English,told me what </p>
+          <p class="separator">Illustrator｜Photoshop</p>
+          <p class="separator">Icon design｜Web、Mobile UI design</p>
 
         </div>
 
-        <div class="services-block">
+        <div class="services-block text-center">
 
-          <i class="ion-ios-lightbulb-outline"></i>
-          <span>BRAND IDENTITY</span>
-          <p class="separator">To an English person, it will seem like simplified English,told me what </p>
-
-        </div>
-
-        <div class="services-block">
-
-          <i class="ion-ios-color-wand-outline"></i>
-          <span>WEB DESIGN</span>
-          <p class="separator">To an English person, it will seem like simplified English,told me what </p>
-
-        </div>
-
-        <div class="services-block">
-
-          <i class="ion-social-android-outline"></i>
-          <span>MOBILE APPS</span>
-          <p class="separator">To an English person, it will seem like simplified English,told me what </p>
-
-        </div>
-
-        <div class="services-block">
-
-          <i class="ion-ios-camera-outline"></i>
-          <span>PHOTOGRAPHY</span>
-          <p class="separator">To an English person, it will seem like simplified English,told me what </p>
+          <i class="ion-android-globe"></i>
+          <span>LANGUAGE</span>
+          <p class="separator">Chinese</p>
+          <p class="separator">English</p>
+          <p class="separator">Japanese</p>
 
         </div>
 
       </div>
-
     </div>
 
   </div>
   <!-- end section services -->
 
-
-  <!-- start section portfolio -->
-  <div id="portfolio" class="text-center paddsection">
+  <!-- start section experience -->
+  <div id="experience">
 
     <div class="container">
-      <div class="section-title text-center">
-        <h2>My Portfolio</h2>
+      <div class="section-title">
+        <h2 class="title-style">Experience</h2>
+      </div>
+    </div>
+
+    <div class="container experience-ctn">
+      <div class="experience-info">
+
+        <div class="pb-5 experience-info-box">
+          <label class="experience-dot"></label>
+          <div class="experience-time">May. 2021 - Feb. 2023</div>
+          <p class="company-name">翔豪管理顧問有限公司<span class="company-desc">FRONTEND DEVELOPER</span></p>
+          <div class="position-relative">
+            <ul class="job-desc">
+              <li>優化舊專案、導入新技術（ 如：Vue2 -> Vue3 ）</li>
+              <li>任職期間製作數個前台會員中心、後台管理界面開發</li>
+              <li>與 UI / UX 、後端工程師協同合作，重視使用者體驗</li>
+              <li>導入 PWA 技術，更新網站為可離線使用模式</li>
+              <li>擅長使用 Bootstrap、 vant、 elementUI 等樣式框架，快速架構網站</li>
+              <li>使用 Git 進行程式版本控制，撰寫 MD 開發文件</li>
+              <li>確實做好 Code Review，保持專案可維護性</li>
+            </ul>
+            <button class="open-desc-btn"><i class="ion-ios-arrow-down"></i></button>
+          </div>
+        </div>
+
+        <div class="pb-5 experience-info-box">
+          <label class="experience-dot"></label>
+          <div class="experience-time">Sep. 2020 - Mar. 2021</div>
+          <p class="company-name">傑爾瑪科技有限公司<span class="company-desc">FRONTEND DEVELOPER</span></p>
+          <div class="position-relative">
+            <ul class="job-desc">
+              <li>使用 Vue2 負責前端程式撰寫</li>
+              <li>協助視覺、專案樣式優化</li>
+              <li>網站 icon 設計</li>
+              <li>與 PM、UI 設計師合作、後端工程師規劃及實作各項頁面</li>
+              <li>擅長使用 Bootstrap、vant、 elementUI 等樣式框架</li>
+            </ul>
+            <button class="open-desc-btn"><i class="ion-ios-arrow-down"></i></button>
+          </div>
+        </div>
+
+        <div class="pb-5 experience-info-box">
+          <label class="experience-dot"></label>
+          <div class="experience-time">May. 2018 - Jun. 2019</div>
+          <p class="company-name">奇藝數位國際有限公司<span class="company-desc">UI designer</span></p>
+          <div class="position-relative">
+            <ul class="job-desc">
+              <li>設計團隊負責人, 協助公司官網上架</li>
+              <li>維護網站頁面形象事宜</li>
+              <li>利用自媒體經營推廣, 使用微信公眾號粉絲900多人, 為公司10人團隊第三</li>
+              <li>網路文案發想與撰寫, 廣告引流人數每月可達500人, 為公司10人團隊第四</li>
+              <li>與團隊成員擬定網路行銷策略</li>
+            </ul>
+            <button class="open-desc-btn"><i class="ion-ios-arrow-down"></i></button>
+          </div>
+        </div>
+
+        <div class="pb-5 experience-info-box">
+          <label class="experience-dot"></label>
+          <div class="experience-time">Feb. 2017 - Oct. 2017</div>
+          <p class="company-name">覲業企業有限公司<span class="company-desc">Graphic Designer</span></p>
+          <div class="position-relative">
+            <ul class="job-desc">
+              <li>規劃客戶整體 CI（ 企業形象識別 ）並進行提案，幫公司拿下競標案件</li>
+              <li>負責公司設計案件，並與客戶達成良好溝通橋樑</li>
+              <li>與外包廠商聯繫，並進行估價、打樣，壓低成本</li>
+              <li>優化客戶形象識別</li>
+            </ul>
+            <button class="open-desc-btn"><i class="ion-ios-arrow-down"></i></button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  <!-- end section experience -->
+
+
+  <!-- start section portfolio -->
+  <div id="portfolio" class="text-center">
+
+    <div class="container">
+      <div class="section-title">
+        <h2 class="title-style">Portfolio</h2>
       </div>
     </div>
 
@@ -191,52 +251,36 @@
 
           <div class="portfolio-list">
 
-            <ul class="nav list-unstyled" id="portfolio-flters">
-              <li class="filter filter-active" data-filter=".all">all</li>
-              <li class="filter" data-filter=".graphic">graphic design</li>
-              <li class="filter" data-filter=".uikits">uI design</li>
-              <li class="filter" data-filter=".branding">branding</li>
-              <!-- <li class="filter" data-filter=".webdesign">web design</li> -->
-              <li class="filter" data-filter=".photography">photography</li>
-            </ul>
+            <!-- <ul class="nav list-unstyled" id="portfolio-flters">
+              <li class="filter filter-active" data-filter=".all">Web development</li>
+              <li class="filter" data-filter=".ui">uI design</li>
+            </ul> -->
 
           </div>
 
           <div class="portfolio-container">
 
             <div class="col-lg-4 col-md-6 portfolio-thumbnail all">
-              <a href="portfolio.html">
-                <img src="images/portfolio/11.png" alt="img">
+              <a href="https://live-chat-node.herokuapp.com/Login">
+                <img src="images/portfolio/third_login.png" alt="img" class="opacity-img">
+                <div class="portfolio-cover">
+                  <div>
+                    <p>三方註冊登入 前後端整合</p>
+                    <p>Vue3 | node.js | MySql</p>
+                  </div>
+                </div>
               </a>
             </div>
 
-            <div class="col-lg-4 col-md-6 portfolio-thumbnail all graphic">
+            <div class="col-lg-4 col-md-6 portfolio-thumbnail ui">
               <a href="portfolio.html">
-                <img src="images/portfolio/7.png" alt="img">
-              </a>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-thumbnail all uikits">
-              <a href="portfolio.html">
-                <img src="images/portfolio/8.png" alt="img">
-              </a>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-thumbnail all branding">
-              <a href="portfolio.html">
-                <img src="images/portfolio/9.png" alt="img">
-              </a>
-            </div>
-
-            <!-- <div class="col-lg-4 col-md-6 portfolio-thumbnail all webdesign">
-              <a href="portfolio.html">
-                <img src="images/portfolio/5.jpg" alt="img">
-              </a>
-            </div> -->
-
-            <div class="col-lg-4 col-md-6 portfolio-thumbnail all photography">
-              <a href="portfolio.html">
-                <img src="images/portfolio/10.png" alt="img">
+                <img src="images/portfolio/ui.png" alt="img" class="opacity-img">
+                <div class="portfolio-cover">
+                  <div>
+                    <p>電商平台專案</p>
+                    <p>React | node.js | MySql</p>
+                  </div>
+                </div>
               </a>
             </div>
 
@@ -250,12 +294,11 @@
 
 
   <!-- start section journal -->
-  <div id="journal" class="text-left paddsection">
+  <!-- <div id="journal" class="text-left">
 
     <div class="container">
       <div class="section-title text-center">
-        <h2>Small project
-        </h2>
+        <h2 class="title-style">CONTACT ME</h2>
       </div>
     </div>
 
@@ -265,7 +308,6 @@
 
           <div class="col-lg-4 col-md-6">
             <div class="journal-info">
-
               <a href="ballgame.html"><img src="images/brickgame.jpg" class="img-responsive" alt="img"></a>
 
               <div class="journal-txt">
@@ -311,38 +353,18 @@
       </div>
     </div>
 
-  </div>
+  </div> -->
   <!-- End section journal -->
 
 
   <!-- start section footer -->
   <div id="footer" class="text-center">
     <div class="container">
-      <div class="socials-media text-center">
-
-        <ul class="list-unstyled">
-          <li><a href="#"><i class="ion-social-facebook"></i></a></li>
-          <li><a href="#"><i class="ion-social-twitter"></i></a></li>
-          <li><a href="#"><i class="ion-social-instagram"></i></a></li>
-          <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
-          <li><a href="#"><i class="ion-social-tumblr"></i></a></li>
-          <li><a href="#"><i class="ion-social-dribbble"></i></a></li>
-        </ul>
-
-      </div>
-
-      <p>&copy; Copyrights Folio. All rights reserved.</p>
-
+      <!-- <a href="https://github.com/ruiyi721" target="_blank"><i class="ion-social-github"></i></a>
+      <a href="mailto:ohya721@gmail.com" target="_blank"><i class="ion-ios-email"></i></a> -->
       <div class="credits">
-        <!--
-          All the links in the footer should remain intact.
-          You can delete the links only if you purchased the pro version.
-          Licensing information: https://bootstrapmade.com/license/
-          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Folio
-        -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        &copy; Designed by RuiyiChen.
       </div>
-
     </div>
   </div>
   <!-- End section footer -->
