@@ -543,8 +543,9 @@ nav ul li a {
 
 #portfolio {
   position: relative;
-  padding-top: 90px;
-  padding-bottom: 50px;
+  padding: 2rem 0 8rem;
+  /* clip-path: polygon(0px 25%, 100% 0px, 100% 75%, 0px 100%);
+  background-image: linear-gradient(to right bottom, rgba(176, 192, 215, 0.7), rgba(85, 120, 170, 0.7)) */
 }
 
 #portfolio .portfolio-list {

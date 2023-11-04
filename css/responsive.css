@@ -210,7 +210,7 @@
   }
   /* experience */
   .experience-info {
-    padding: 0 2rem 0 4rem;
+    padding: 0 2rem 0 3rem;
   }
   .job-desc::before {
     content: "";
@@ -228,7 +228,14 @@
   .open-desc-btn {
     display: inherit;
   }
+  .experience-dot {
+    left: -2rem;
+    outline: #fff solid 0.5rem;
+  }
   /* portfolio */
+  #portfolio {
+    padding: 0 0 8rem;
+  }
   #portfolio .portfolio-list .nav li {
     float: none;
     margin: 10px;
